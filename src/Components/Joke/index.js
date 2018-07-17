@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 const Joke = ({ id, joke }) => (
-  <div className="joke">
+  <div className="joke" id={id}>
     {joke}
   </div>
 );

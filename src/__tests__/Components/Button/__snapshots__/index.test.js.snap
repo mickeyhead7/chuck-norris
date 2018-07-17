@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Button default 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Button
+    disabled={false}
+    onClick={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": "Get a new joke",
+      "className": "button",
+      "disabled": false,
+      "onClick": [Function],
+    },
+    "ref": null,
+    "rendered": "Get a new joke",
+    "type": "button",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "Get a new joke",
+        "className": "button",
+        "disabled": false,
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": "Get a new joke",
+      "type": "button",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Button Button disabled 1`] = `
+ReactWrapper {
+  "length": 1,
+  Symbol(enzyme.__unrendered__): <Button
+    disabled={true}
+    onClick={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "disabled": true,
+      "onClick": [Function],
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <button
+        class="button"
+        disabled=""
+>
+        Get a new joke
+</button>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "Get a new joke",
+        "className": "button",
+        "disabled": true,
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        "Get a new joke",
+      ],
+      "type": "button",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "disabled": true,
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <button
+          class="button"
+          disabled=""
+>
+          Get a new joke
+</button>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Get a new joke",
+          "className": "button",
+          "disabled": true,
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Get a new joke",
+        ],
+        "type": "button",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

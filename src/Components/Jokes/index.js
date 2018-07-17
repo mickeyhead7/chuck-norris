@@ -8,7 +8,7 @@ import Joke from '../Joke';
 import Button from '../Button';
 import './styles.css';
 
-const Jokes = ({ error, jokes, addJoke, buttonDisabled }) => (
+export const Jokes = ({ error, jokes, addJoke, buttonDisabled }) => (
   <div className="jokes">
     <ErrorText error={error} />
     {jokes.map(joke => (

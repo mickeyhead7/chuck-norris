@@ -1,6 +1,8 @@
 import { compose, filter, prepend, prop } from 'ramda';
 import { ADD_JOKE, ADD_JOKE_FAILED, JOKE_ADDED } from '../actions/jokes';
 
+export const addJokeErrorText = 'There was a problem getting the joke :( Please try again later';
+
 export const defaultState = {
   error: null,
   inProgress: false,
@@ -26,7 +28,7 @@ export default (state = defaultState, action) => {
     case ADD_JOKE_FAILED:
       return {
         ...state,
-        error: 'There was a problem getting the joke :( Please try again later',
+        error: addJokeErrorText,
         inProgress: false
       };
     

@@ -2,7 +2,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import { ADD_JOKE, ADD_JOKE_FAILED, JOKE_ADDED } from './actions/jokes';
 import * as api from '../helpers/api';
 
-function* fetchJoke () {
+export function* fetchJoke () {
   try {
     const joke = yield call(api.fetchJoke);
     
