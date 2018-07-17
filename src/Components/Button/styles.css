@@ -1,0 +1,8 @@
+.button {
+  background-color: green;
+  border: 0;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  padding: 1rem;
+}
