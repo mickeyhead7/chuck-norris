@@ -9,11 +9,11 @@ export const defaultState = {
 
 const selector = prop('jokes');
 
-export const errorSelector = compose(selector, prop('error'));
+export const errorSelector = compose(prop('error'), selector);
 
-export const jokesSelector = compose(selector, prop('jokes'));
+export const jokesSelector = compose(prop('jokes'), selector);
 
-export const inProgressSelector = compose(selector, prop('inProgress'));
+export const inProgressSelector = compose(prop('inProgress'), selector);
 
 export default (state = defaultState, action) => {
   switch (action.type) {
