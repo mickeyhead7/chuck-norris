@@ -1,9 +1,10 @@
 import React from 'react';
 import './styles.css';
 
-const Button = ({ onClick }) => (
+const Button = ({ disabled, onClick }) => (
   <button
     className="button"
+    disabled={disabled}
     onClick={onClick}
   >
     Get a new joke
