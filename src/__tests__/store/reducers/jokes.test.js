@@ -8,6 +8,11 @@ import jokesReducer,
     fetchJokeErrorText
   } from '../../../store/reducers/jokes';
 
+const joke = {
+  id: 1,
+  joke: 'foo'
+};
+
 let testState;
 
 beforeEach(() => {
@@ -40,17 +45,25 @@ describe('Jokes reducer', () => {
     expect(state.inProgress).toBeTruthy();
   });
 
-  test(`${ADD_JOKE} should set the jokes and inProgress states`, () => {
-    const state = jokesReducer(testState, { type: ADD_JOKE });
-  
-    expect(state.error).toBeNull();
-    expect(state.error).toBeFalsy();
-  });
-
   test(`${FETCH_JOKE_FAILED} should set the error and inProgress states`, () => {
     const state = jokesReducer(testState, { type: FETCH_JOKE_FAILED });
   
     expect(state.error).toBe(fetchJokeErrorText);
     expect(state.inProgress).toBeFalsy();
+  });
+
+  test(`${ADD_JOKE} should set the jokes and inProgress states`, () => {
+    const state = jokesReducer(testState, { type: ADD_JOKE, joke });
+  
+    expect(state.error).toBeNull();
+    expect(state.inProgress).toBeFalsy();
+    expect(state.jokes).toEqual([ joke ]);
+  });
+
+  test(`${ADD_JOKE} should not duplicate jokes`, () => {
+    const state = jokesReducer(testState, { type: ADD_JOKE, joke });
+    const nextState = jokesReducer(state, { type: ADD_JOKE, joke });
+  
+    expect(nextState.jokes).toEqual([ joke ]);
   });
 });
