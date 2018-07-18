@@ -17,7 +17,7 @@ describe('Jokes', () => {
           joke: 'bar'
         }
       ],
-      addJoke: jest.fn(),
+      fetchJoke: jest.fn(),
       buttonDisabled: false
     };
     const jokes = shallow(<Jokes {...props} />);

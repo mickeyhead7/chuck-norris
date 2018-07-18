@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import * as api from '../../helpers/api';
-import { jokeAdded, addJokeFailed } from '../../store/actions/jokes';
-import { fetchJoke } from '../../store/sagas';
+import { fetchJokeFailed, addJoke } from '../../store/actions/jokes';
+import { fetchJokeFromAPI } from '../../store/sagas';
 
 const joke = {
   id: 1,
@@ -9,7 +9,7 @@ const joke = {
 };
 
 describe('', () => {
-  const gen = fetchJoke(joke);
+  const gen = fetchJokeFromAPI(joke);
 
   test('A joke is fetched via the api', () => {
     expect(gen.next().value).toEqual(call(api.fetchJoke));
@@ -20,7 +20,7 @@ describe('', () => {
 
     expect(value).toEqual(
       put(
-        jokeAdded(joke)
+        addJoke(joke)
       )
     );
   });
@@ -28,6 +28,6 @@ describe('', () => {
   it('Throws an error if the API fails', () => {
     let value = gen.throw().value;
 
-    expect(value).toEqual(put(addJokeFailed()));
+    expect(value).toEqual(put(fetchJokeFailed()));
   });
 });

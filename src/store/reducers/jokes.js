@@ -1,7 +1,7 @@
 import { compose, filter, prepend, prop } from 'ramda';
-import { ADD_JOKE, ADD_JOKE_FAILED, JOKE_ADDED } from '../actions/jokes';
+import { FETCH_JOKE, FETCH_JOKE_FAILED, ADD_JOKE } from '../actions/jokes';
 
-export const addJokeErrorText = 'There was a problem getting the joke :( Please try again later';
+export const fetchJokeErrorText = 'There was a problem getting the joke :( Please try again later';
 
 export const defaultState = {
   error: null,
@@ -19,20 +19,20 @@ export const inProgressSelector = compose(prop('inProgress'), selector);
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case ADD_JOKE:
+    case FETCH_JOKE:
       return {
         ...state,
         inProgress: true,
       };
 
-    case ADD_JOKE_FAILED:
+    case FETCH_JOKE_FAILED:
       return {
         ...state,
-        error: addJokeErrorText,
+        error: fetchJokeErrorText,
         inProgress: false
       };
     
-    case JOKE_ADDED:
+    case ADD_JOKE:
       const doesJokeExist = joke => joke.id !== action.joke.id;
       const filteredJokes = filter(doesJokeExist, state.jokes);
       const jokes = prepend(action.joke, filteredJokes);

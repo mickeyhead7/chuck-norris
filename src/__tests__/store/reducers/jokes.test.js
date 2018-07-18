@@ -1,11 +1,11 @@
-import { ADD_JOKE, JOKE_ADDED, ADD_JOKE_FAILED } from '../../../store/actions/jokes';
+import { FETCH_JOKE, FETCH_JOKE_FAILED, ADD_JOKE } from '../../../store/actions/jokes';
 import jokesReducer, 
   { 
     defaultState,
     errorSelector,
     jokesSelector,
     inProgressSelector,
-    addJokeErrorText
+    fetchJokeErrorText
   } from '../../../store/reducers/jokes';
 
 let testState;
@@ -33,24 +33,24 @@ describe('Jokes reducer', () => {
     expect(result).toBe(testState.jokes.inProgress);
   });
 
-  test(`${ADD_JOKE} should set the inProgress states`, () => {
-    const state = jokesReducer(testState, { type: ADD_JOKE });
+  test(`${FETCH_JOKE} should set the inProgress states`, () => {
+    const state = jokesReducer(testState, { type: FETCH_JOKE });
   
     expect(state.error).toBeNull();
     expect(state.inProgress).toBeTruthy();
   });
 
-  test(`${JOKE_ADDED} should set the jokes and inProgress states`, () => {
-    const state = jokesReducer(testState, { type: JOKE_ADDED });
+  test(`${ADD_JOKE} should set the jokes and inProgress states`, () => {
+    const state = jokesReducer(testState, { type: ADD_JOKE });
   
     expect(state.error).toBeNull();
     expect(state.error).toBeFalsy();
   });
 
-  test(`${ADD_JOKE_FAILED} should set the error and inProgress states`, () => {
-    const state = jokesReducer(testState, { type: ADD_JOKE_FAILED });
+  test(`${FETCH_JOKE_FAILED} should set the error and inProgress states`, () => {
+    const state = jokesReducer(testState, { type: FETCH_JOKE_FAILED });
   
-    expect(state.error).toBe(addJokeErrorText);
+    expect(state.error).toBe(fetchJokeErrorText);
     expect(state.inProgress).toBeFalsy();
   });
 });

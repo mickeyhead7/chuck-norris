@@ -1,27 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addJoke } from '../../store/actions/jokes';
+import { fetchJoke } from '../../store/actions/jokes';
 import { errorSelector, jokesSelector, inProgressSelector } from '../../store/reducers/jokes';
 import ErrorText from '../ErrorText';
 import Joke from '../Joke';
 import Button from '../Button';
 import './styles.css';
 
-export const Jokes = ({ error, jokes, addJoke, buttonDisabled }) => (
+export const Jokes = ({ error, jokes, fetchJoke, buttonDisabled }) => (
   <div className="jokes">
     <ErrorText error={error} />
     {jokes.map(joke => (
       <Joke key={joke.id} {...joke} />
     ))}
-    <Button disabled={buttonDisabled} onClick={addJoke} />
+    <Button disabled={buttonDisabled} onClick={fetchJoke} />
   </div>
 );
 
 Jokes.propTypes = {
   error: PropTypes.string,
   jokes: PropTypes.array.isRequired,
-  addJoke: PropTypes.func.isRequired,
+  fetchJoke: PropTypes.func.isRequired,
   buttonDisabled: PropTypes.bool.isRequired
 };
 
@@ -32,7 +32,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addJoke: joke => dispatch(addJoke(joke))
+  fetchJoke: joke => dispatch(fetchJoke(joke))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jokes);

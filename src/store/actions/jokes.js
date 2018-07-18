@@ -1,19 +1,18 @@
+export const FETCH_JOKE = 'FETCH_JOKE';
+
+export const FETCH_JOKE_FAILED = 'FETCH_JOKE_FAILED';
+
 export const ADD_JOKE = 'ADD_JOKE';
 
-export const ADD_JOKE_FAILED = 'ADD_JOKE_FAILED';
+export const fetchJoke = () => ({
+  type: FETCH_JOKE,
+});
 
-export const JOKE_ADDED = 'JOKE_ADDED';
+export const fetchJokeFailed = () => ({
+  type: FETCH_JOKE_FAILED
+});
 
 export const addJoke = joke => ({
   type: ADD_JOKE,
-  joke
-});
-
-export const addJokeFailed = () => ({
-  type: ADD_JOKE_FAILED
-});
-
-export const jokeAdded = joke => ({
-  type: JOKE_ADDED,
   joke
 });

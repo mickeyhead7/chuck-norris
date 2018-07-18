@@ -5,9 +5,9 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Unknown
-    addJoke={[Function]}
     buttonDisabled={false}
     error={null}
+    fetchJoke={[Function]}
     jokes={
         Array [
             Object {
